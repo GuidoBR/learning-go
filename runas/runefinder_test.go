@@ -5,8 +5,12 @@ import "testing"
 const linhaLetraA = `0041;LATIN CAPITAL LETTER A;Lu;0;L;;;;;N;;;;0061;`
 
 func TestAnalisarLinha(t *testing.T) {
-        runa, _ := AnalisarLinha(linhaLetraA)
+        runa, nome := AnalisarLinha(linhaLetraA)
         if runa != 'A' {
-                t.Errorf("Esperava A, veio %c", runa)
+                t.Errorf("Esperava 'A', veio %q", runa)
+        }
+        const nomeA = "LATIN CAPITAL LETTER A"
+        if nome != nomeA {
+            t.Errorf("Esperava %q, veio %q", nomeA, nome)
         }
 }
